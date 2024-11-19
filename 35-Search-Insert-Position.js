@@ -20,3 +20,6 @@ var searchInsert = function(nums, target) {
     }
     return left;
 };
+
+// Explanation of the problem in Arabic:
+//https://www.youtube.com/watch?v=5WgQXMPcOHI
