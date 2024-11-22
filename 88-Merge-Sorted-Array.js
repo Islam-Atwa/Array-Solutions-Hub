@@ -6,17 +6,25 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
-    let midx = m -1;
-    let nidx = n -1;
-    let right = m + n -1;
-    while (nidx >= 0){
-        if (midx >= 0 && nums1[midx] > nums2[nidx]){
-            nums1[right] = nums1[midx];
-            midx--;
-        }else{
-            nums1[right] = nums2[nidx];
-            nidx--;
+    // Create 3 pointers
+    let iNum1 = m - 1;
+    let iNum2 = n - 1;
+    let total = m + n - 1;
+
+
+    while (iNum1 >= 0 && iNum2 >= 0) {
+        if (nums1[iNum1] < nums2[iNum2]) {
+            nums1[total--] = nums2[iNum2--];
+        } else {
+            nums1[total--] = nums1[iNum1--];
         }
-            right --;
+    }
+
+    // Add remaining elements from nums2 (if any)
+    while (iNum2 >= 0) {
+        nums1[total--] = nums2[iNum2--];
     }
 };
+// Explanation of the problem in Arabic:
+// https://youtu.be/GDbDvcpqUQ4?si=MO-7WrVyzLkWmw57
+//
